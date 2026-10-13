@@ -7,8 +7,8 @@ export class AutoresController {
 
   async listarAutores(req, res) {
     try {
-      const resulado = await Autor.pegarAutores();
-      res.status(200).send(resulado);
+      const resultado = await Autor.pegarAutores();
+      res.status(200).send(resultado);
     } catch (err) {
       res.status(500).json(err.message);
     }
@@ -19,7 +19,7 @@ export class AutoresController {
     try {
       const resultado = await Autor.pegarPeloId(id);
       if (!resultado) {
-        return res.status(404).json({ message: 'Autor não encontrado' });
+        return res.status(404).json({ message: 'Autor não encontrado', type: 'NOT_FOUND' });
       }
       res.status(200).send(resultado);
     } catch (err) {
