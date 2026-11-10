@@ -1,109 +1,86 @@
-# Curso de Testes Automatizados em APIs Node - Alura
+# 🧪 Curso de Testes Automatizados - Alura
 
-## Domínio
+Este repositório é dedicado aos estudos, práticas, exercícios e projetos desenvolvidos ao longo do **Curso de Testes Automatizados** da [Alura](https://www.alura.com.br/).
 
-Livraria com sistema de cadastro e manejo de livros, autores, editoras, e compra de livros.
+---
 
-## Modelagem
+## 🚀 Sobre o Repositório
 
-```mermaid
-erDiagram
-    AUTORES ||--o{ LIVROS : "escreve"
-    EDITORAS ||--o{ LIVROS : "publica"
-    LIVROS ||--o{ VENDAS : ""
+O objetivo deste espaço é consolidar os conhecimentos teóricos e práticos sobre Garantia de Qualidade (QA) de software, abrangendo desde a criação de cenários de teste e boas práticas até a automação de fluxos end-to-end (E2E), testes unitários ou validação de APIs.
 
-    AUTORES {
-        int id PK
-        string nome
-        string nacionalidade
-        datetime created_at
-        datetime updated_at
-    }
+---
 
-    EDITORAS {
-        int id PK
-        string nome
-        string cidade
-        string email
-        datetime created_at
-        datetime updated_at
-    }
+## 🛠️ Tecnologias e Ferramentas
 
-    LIVROS {
-        int id PK
-        string titulo
-        int paginas
-        int autor_id FK
-        int editora_id FK
-        datetime created_at
-        datetime updated_at
-    }
+*As tecnologias abaixo servem de exemplo; ajuste conforme a stack abordada no seu curso:*
 
-    VENDAS {
-      int id PK
-      int valor
-      enum tipo_pagamento
-      datetime created_at
-      datetime updated_at
-    }
+* **Linguagem:** JavaScript / TypeScript *(ou Java / Python)*
+* **Frameworks de Teste:** Cypress / Playwright / Jest / JUnit
+* **Gerenciador de Pacotes:** npm / yarn / Maven
+* **Controle de Versão:** Git e GitHub
+
+---
+
+## 📁 Estrutura do Repositório
+
+O projeto é organizado por módulos ou aulas para facilitar a navegação pelos tópicos estudados:
+
+```text
+curso-testes/
+├── modulo-01/          # Conceitos iniciais e primeiros testes
+├── modulo-02/          # Automação de interfaces e cenários complexos
+├── ...
+└── README.md
+
 ```
 
-## Design da API (Inicial)
+---
 
-### Autores
+## ⚙️ Como Executar o Projeto
 
-- POST /autores → cadastrar novo autor.
-- GET /autores → listar todos os autores.
-- GET /autores/:id → buscar autor por id.
+Para rodar os testes em sua máquina local, siga os passos abaixo:
 
-### Editoras
+1. **Clone o repositório:**
+```bash
+git clone https://github.com/martinezrafael/curso-testes.git
 
-- POST /editoras → cadastrar nova editora.
-- GET /editoras → listar todas as editoras.
-- GET /editoras/:id → buscar editora por id.
-
-### Livros
-
-- POST /livros → cadastrar novo livro (vinculado a autor e editora via FKs).
-- GET /livros → listar todos os livros.
-- GET /livros/:id → buscar livro por id.
-
-## Design da API (Completo)
-
-### Autores
-
-- GET /autores → listar todos os autores.
-- GET /autores/:id → buscar autor por id.
-- GET /autores/:id/livros → listar livros de um autor específico.
-- POST /autores → cadastrar novo autor.
-- PUT /autores/:id → atualizar autor existente.
-- DELETE /autores/:id → excluir autor.
-
-### Editoras
-
-- GET /editoras → listar todas as editoras.
-- GET /editoras/:id → buscar editora por id.
-- GET /editoras/:id/livros → listar livros de uma editora específica.
-- POST /editoras → cadastrar nova editora (com validação de corpo vazio).
-- PUT /editoras/:id → atualizar editora existente.
-- DELETE /editoras/:id → excluir editora.
-
-### Livros
-
-- GET /livros → listar todos os livros.
-- GET /livros/:id → buscar livro por id.
-- POST /livros → cadastrar novo livro (vinculado a autor e editora via FKs).
-- PUT /livros/:id → atualizar livro existente.
-- DELETE /livros/:id → excluir livro.
-
-### Vendas
-
-- POST /vendas → registra uma nova venda. Quando uma venda é feita, um email é enviado à editora.
-
-```json
-{
-  "idLivro": 1,
-  "valor": 100,
-  "modoPagamento": "CARTAO_CREDITO"
-}
 ```
+
+
+2. **Acesse o diretório do projeto:**
+```bash
+cd curso-testes
+
+```
+
+
+3. **Instale as dependências:**
+```bash
+npm install
+
+```
+
+
+4. **Execute os testes:**
+```bash
+# Exemplo para rodar em modo interativo ou headless (ajuste conforme o framework)
+npm test
+
+```
+
+
+
+---
+
+## 🎯 Principais Aprendizados
+
+* Planejamento e escrita de cenários de teste eficientes.
+* Configuração de ambientes de automação do zero.
+* Identificação de elementos na página e manipulação de fluxos.
+* Boas práticas de manutenção de código de teste.
+
+---
+
+## 👤 Autor
+
+Desenvolvido por **Rafael Molina Martinez**.
